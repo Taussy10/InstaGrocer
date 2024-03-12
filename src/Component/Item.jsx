@@ -31,7 +31,7 @@ const Item = ({data , navigation}) => {
       <FlatList
         horizontal
         showsHorizontalScrollIndicator={false}
-        showsVerticalScrollIndicator={false}
+        // showsVerticalScrollIndicator={false}
         data={data}
         // in flatList every data is sum up as an item 
         renderItem={({ item, index }) => (

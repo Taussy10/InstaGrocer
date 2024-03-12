@@ -7,6 +7,7 @@ import Home from '../Screens/Home'
 import Details from '../Screens/Details'
 import Cart from '../Screens/Cart'
 import OrderPlaced from '../Screens/OrderPlaced'
+import SearchDetails from '../Screens/SearchDetails'
 const Stack = createNativeStackNavigator()
 
 const AppNavigator = ({name}) => {
@@ -16,7 +17,8 @@ const AppNavigator = ({name}) => {
          <Stack.Screen name="Splash" component={Splash} />
       <Stack.Screen name='SignUp' component={SignUp} />
    <Stack.Screen name='Home' component={Home} />
-        <Stack.Screen name='Details' component={Details} />
+   <Stack.Screen name='SearchDetails' component={SearchDetails} />
+    <Stack.Screen name='Details' component={Details} />
       <Stack.Screen name='Cart' component={Cart} />
       <Stack.Screen name='OrderPlaced' component={OrderPlaced} />
 

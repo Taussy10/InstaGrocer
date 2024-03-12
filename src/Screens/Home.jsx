@@ -14,10 +14,10 @@ const Home = ({navigation}) => {
 
   return (
     <SafeAreaView style={styles.container} >
-     <ScrollView  showsHorizontalScrollIndicator > 
+     <ScrollView  showsHorizontalScrollIndicator={false} > 
     {/* Header */}  
     <View style={styles.header}>
-    <Header/>
+    {/* <Header/> */}
     <SearchBar />
     </View>
     {/* Banner */}
