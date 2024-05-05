@@ -4,7 +4,7 @@ import  {createNativeStackNavigator}  from '@react-navigation/native-stack'
 import Splash from '../Screens/Splash'
 import SignUp from '../Screens/SignUp'
 import Home from '../Screens/Home'
-import Details from '../Screens/Details'
+import ItemDetails from '../Screens/ItemDetails'
 import Cart from '../Screens/Cart'
 import OrderPlaced from '../Screens/OrderPlaced'
 import SearchDetails from '../Screens/SearchDetails'
@@ -18,7 +18,7 @@ const AppNavigator = ({name}) => {
       <Stack.Screen name='SignUp' component={SignUp} />
    <Stack.Screen name='Home' component={Home} />
    <Stack.Screen name='SearchDetails' component={SearchDetails} />
-    <Stack.Screen name='Details' component={Details} />
+    <Stack.Screen name='ItemDetails' component={ItemDetails} options={{headerShown:true}} />
       <Stack.Screen name='Cart' component={Cart} />
       <Stack.Screen name='OrderPlaced' component={OrderPlaced} />
 

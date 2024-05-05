@@ -10,10 +10,12 @@ import DropBox from '../Component/DropBox'
 // Redux code 
 import { useDispatch , useSelector } from 'react-redux'; 
 import { addToCart } from '../Redux/CartSlice'
+import { Colors } from '../Utility/Colors'
+import { moderateScale } from 'react-native-size-matters'
 // You may remove it try to remove it 
 
 
-const Details = ({route, navigation}) => {
+const ItemDetails = ({route, navigation}) => {
   // to use Dropbox you have to enable {item}
 const {item} = route.params.main;
 // const [selected, SetSelected] = useState(null)
@@ -56,8 +58,8 @@ console.log(productData , "{I'm data from Item.jsx}");
   return (
     <SafeAreaView  style={styles.container}>
       {/* Image */}
-      <View style={{ height: responsiveHeight(10), padding: 10 }}>
-  <ImageBackground source={{ uri: img }} style={styles.image} resizeMode="contain">
+      <View style={{ height: responsiveHeight(10) }}>
+  <ImageBackground source={ img } style={styles.BackgroundImg} resizeMode="contain">
     {/* Maine bol diya jab onPress kare tabhi aaye bina baat ke naa aaye */}
     <TouchableOpacity onPress={() => navigation.navigate("Home")} style={{ marginTop: 25, marginLeft: 15 }}>
       <Back name="chevron-back" size={40} />
@@ -67,6 +69,9 @@ console.log(productData , "{I'm data from Item.jsx}");
      
     
         {/* Container 2 */}
+        <View style={styles.subContainer}>
+
+        
         <View style={styles.productDetail}>
        
         <View style={{justifyContent:'space-between', flexDirection:'row' }}> 
@@ -81,16 +86,23 @@ console.log(productData , "{I'm data from Item.jsx}");
           </TouchableOpacity>
         }  
         </View>
-        <Text>{pieces}</Text>
+        <Text style={{fontSize: moderateScale(18), marginBottom: (10), marginTop: (5)}}>{pieces}</Text>
        
-        {/* Addition corrector */}
-        <View style={{alignItems:'center', flexDirection:'row', justifyContent:'space-between',}}> 
+        {/* Addition and Price Container*/}
+        <View style={{marginBottom: 100, backgroundColor: 'green',alignItems:'center', flexDirection:'row', justifyContent:'space-between', }}> 
 
-        <View style={{ flexDirection:'row' , gap: 5,}}> 
-        <Icon  name="plus" size={30}/>
-        <Text style={styles.qty}> 1 </Text>
+        <View style={ styles.qtyContainer}> 
+
+         <TouchableOpacity style={styles.roundBtn}>
+         <Icon  name="plus" size={30} color={"white"}/>
+
+         </TouchableOpacity>
+
+        <Text  style={styles.qty} > 1KG </Text>
+
+        <TouchableOpacity style={{ ...styles.roundBtn , backgroundColor:'lightgrey'}}>
       <Icon  name="minus" size={30}/>
-      
+      </TouchableOpacity>
         </View>
         <Text style={{fontSize: responsiveFontSize(4)}}>${price}</Text>
         </View> 
@@ -112,7 +124,7 @@ console.log(productData , "{I'm data from Item.jsx}");
   }}
   activeOpacity={0.8}
   style={{
-    backgroundColor: "green",
+    backgroundColor: Colors.PRIMARY,
     borderRadius: 10,
     height: 70,
     justifyContent: "center",
@@ -123,106 +135,33 @@ console.log(productData , "{I'm data from Item.jsx}");
     Add to Basket
   </Text>
 </TouchableOpacity>
-
- {/* {storeData.some((value)=> value.name === productData.name)  ? ( 
- <TouchableOpacity
-              disabled={true}
-              activeOpacity={0.8}
-              style={{
-                // Grey color
-                backgroundColor: "grey",
-                borderRadius: 10,
-                height: 70,
-                justifyContent: "center",
-                alignItems: "center",
-              }}
-            >
-              <Text style={{ color: "black", fontSize: 18, fontWeight: "700" }}>
-                Added to Basket
-              </Text>
-            </TouchableOpacity>) 
- : 
- (  <TouchableOpacity
-  onPress={() => {
-    dispatch(addToCart(productData));
-    navigation.navigate("Cart");
-  }}
-  activeOpacity={0.8}
-  style={{
-    backgroundColor: "green",
-    borderRadius: 10,
-    height: 70,
-    justifyContent: "center",
-    alignItems: "center",
-  }}
->
-  <Text style={{ color: "white", fontSize: 18, fontWeight: "700" }}>
-    Add to Basket
-  </Text>
-</TouchableOpacity>
-            ) } */}
-       
-
-
-       {/* {storeData.some((value) => value.name == productData.name) ? (
-            <TouchableOpacity
-              disabled={true}
-              activeOpacity={0.8}
-              style={{
-                // Grey color
-                backgroundColor: "grey",
-                borderRadius: 10,
-                height: 70,
-                justifyContent: "center",
-                alignItems: "center",
-              }}
-            >
-              <Text style={{ color: "black", fontSize: 18, fontWeight: "700" }}>
-                Added to Basket
-              </Text>
-            </TouchableOpacity>
-          ) : (
-            <TouchableOpacity
-              onPress={() => {
-                dispatch(addToCart(productData));
-                navigation.navigate("Cart");
-              }}
-              activeOpacity={0.8}
-              style={{
-                backgroundColor: "green",
-                borderRadius: 10,
-                height: 70,
-                justifyContent: "center",
-                alignItems: "center",
-              }}
-            >
-              <Text style={{ color: "white", fontSize: 18, fontWeight: "700" }}>
-                Add to Basket
-              </Text>
-            </TouchableOpacity>
-          )} */}
-
-
-        {/* </View> */}
+</View>
     </SafeAreaView>
   )
 }
 
-export default Details
+export default ItemDetails
 
 const styles = StyleSheet.create({
   container:{
-    flex: 1,
-    padding: 10,
+    // flex: 1,
+    // padding: 10,
     // backgroundColor:'red'
     
   },
-  image:{
+  subContainer:{
+ 
+    padding: 10,
+   
+    
+  },
+  BackgroundImg:{
     height:responsiveHeight(30)  ,
+    backgroundColor: "#cdead6"
     
   },
   productDetail:{
-    padding:10,
+    
     height: responsiveHeight(20),
     // marginTop: ,
     // backgroundColor:'red',
@@ -232,23 +171,28 @@ const styles = StyleSheet.create({
     marginTop: 143,
   },
 
-  // button:{
-  //   backgroundColor:'green',
-  //   height:responsiveHeight(8),
-  //   borderRadius: 15,
-  //   justifyContent:'center',
-  //   alignItems:'center',
-  //   marginTop: 10,
-   
-  // },
+ 
   qty:{
-    fontSize: responsiveFontSize(2.5),
-     borderColor:'black',
-     borderWidth:2,
-      padding:5,
-     borderRadius: 8,},
+   fontSize: moderateScale(20)
+    },
+
      desc:{
-      fontSize: responsiveFontSize(2.2),
+      fontSize: moderateScale(2.2),
       fontWeight:'600'
-     }
+     },
+  roundBtn:{ 
+    width: 50 ,
+    height: 50 , 
+    borderRadius: 25,
+    backgroundColor:Colors.PRIMARY , 
+    flexDirection:'row',
+    justifyContent:'center',
+    alignItems:'center'
+  },
+  qtyContainer:{
+     flexDirection:'row'
+      ,alignItems:'center' ,
+       gap: 4,
+      
+      }
 })

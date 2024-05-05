@@ -45,7 +45,7 @@ const Item = ({data , navigation}) => {
               // params as main
               // 3. for testing pupose I also send my Name there 
             
-              navigation.navigate("Details", {
+              navigation.navigate("ItemDetails", {
                 main: item,
                 name: "Tausif"
               });

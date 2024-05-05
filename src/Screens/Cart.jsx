@@ -61,6 +61,7 @@ import { AntDesign } from "@expo/vector-icons";
 import { useDispatch, useSelector } from "react-redux";
 import { incrementQty, decrementQty, removeFromCart } from "../Redux/CartSlice";
 import { useNavigation } from "@react-navigation/native";
+import { Colors } from "../Utility/Colors";
 
 const Cart = ({navigation, route}) => {
   const productData = route.params.main
@@ -115,10 +116,8 @@ const Cart = ({navigation, route}) => {
               >
                 <Image
                   style={{ height: 120, width: 120, resizeMode: "contain" }}
-                  source={{
-                    uri: item.img,
-                  }} 
-                />
+                  source={item.img} 
+                  />
               </View>
 
               {/* ///Child 2 */}
@@ -206,14 +205,14 @@ const Cart = ({navigation, route}) => {
       </View>
       <TouchableOpacity onPress={(()=> navigation.navigate("OrderPlaced", {main:productData}) )}
       style={{
-        backgroundColor: 'lightgreen',
+        backgroundColor: Colors.PRIMARY,
         borderRadius: 10,
         height: 70,
         justifyContent: "center",
         alignItems: "center",
       }}
       >
-        <Text  >Order it  </Text>
+        <Text style={{color: "white" , fontSize: 30 , fontWeight: '700'}} >Order it  </Text>
       </TouchableOpacity>
       {/* <View>
         <TouchableOpacity

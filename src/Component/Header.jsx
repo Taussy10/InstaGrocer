@@ -5,7 +5,7 @@ const Header = () => {
   return (
     <>
       <Image source={require('../Assets/Images/Logo.png')} style={styles.logo} />
-       <Text>New Delhi, India</Text>
+       <Text style={{color:'white' , fontSize:20 , fontWeight:'700'}}>New Delhi, India</Text>
     </>
   )
 }

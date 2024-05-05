@@ -2,30 +2,30 @@ import { Image } from "react-native";
 
 export const Fruits = [
   {
-    name: "apple",
+    name: "Apple",
     pieces: "7pcs",
     price: 4.99,
     // img: "https://w7.pngwing.com/pngs/265/75/png-transparent-ipod-touch-apple-icon-format-icon-large-red-apples-closeup-of-red-apples-natural-foods-food-eating.png",
     img: require("../Assets/Images/Fruits/apple.png")
   },
   {
-    name: "banana",
+    name: "Banana",
     pieces: "7pcs",
     price: 4.99,
     // img: "https://e7.pngegg.com/pngimages/955/492/png-clipart-banana-powder-fruit-cavendish-banana-banana-yellow-banana-fruit-food-image-file-formats.png",
     img: require("../Assets/Images/Fruits/banana.png"),
   },
   {
-    name: "orange",
+    name: "Orange",
     pieces: "7pcs",
     price: 4.99,
     img: require("../Assets/Images/Fruits/orange.png"),
   },
   {
-    name: "pine apple",
+    name: "Pineapple",
     pieces: "7pcs",
     price: 4.99,
-    img: "https://static.vecteezy.com/system/resources/previews/008/848/362/non_2x/fresh-pineapple-free-png.png",
+    // img: "https://static.vecteezy.com/system/resources/previews/008/848/362/non_2x/fresh-pineapple-free-png.png",
     img: require("../Assets/Images/Fruits/pineapple.png"),
 
   },
@@ -36,25 +36,25 @@ export const Fruits = [
     name: "Potato",
     pieces: "1KG",
     price: 4.99,
-    img: "https://w7.pngwing.com/pngs/265/75/png-transparent-ipod-touch-apple-icon-format-icon-large-red-apples-closeup-of-red-apples-natural-foods-food-eating.png",
+    img: require("../Assets/Images/Vegetables/potato.png"),
   },
   {
     name: "Ginger",
     pieces: "1KG",
     price: 4.99,
-    img: "https://e7.pngegg.com/pngimages/955/492/png-clipart-banana-powder-fruit-cavendish-banana-banana-yellow-banana-fruit-food-image-file-formats.png",
+    img: require("../Assets/Images/Vegetables/ginger.png"),
   },
   {
     name: "Pumpkin",
     pieces: "1KG",
     price: 4.99,
-    img: "https://w7.pngwing.com/pngs/1001/506/png-transparent-slices-of-oranges-orange-juice-flavor-fruit-nutritious-orange-natural-foods-food-orange.png",
+    img: require("../Assets/Images/Vegetables/pumpkin.png"),
   },
   {
     name: "Radish",
     pieces: "1KG",
     price: 4.99,
-    img: "https://static.vecteezy.com/system/resources/previews/008/848/362/non_2x/fresh-pineapple-free-png.png",
+    img: require("../Assets/Images/Vegetables/radish.png"),
   },
 ];
 

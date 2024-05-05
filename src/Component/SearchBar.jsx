@@ -39,9 +39,7 @@ const SearchBar = () => {
         {/* <Text style={{ color: 'white',}}>Search</Text> */}
         <FontAwesome name="search" size={24} color="black" />
       </TouchableOpacity>
-      {/* <TouchableOpacity onPress={goToSearchDetails} style={styles.button}>
-        <Text>View Results</Text>
-      </TouchableOpacity> */}
+     
     </View>
     </View>
     </View>
@@ -62,7 +60,7 @@ const styles = StyleSheet.create({
     borderRadius: 20,
   },
   input: {
-    height: responsiveHeight(5.7),
+    // height: responsiveHeight(4),
     width: responsiveWidth(75),
     marginVertical: 12,
     color:'lightgrey',
