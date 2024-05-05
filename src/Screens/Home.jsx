@@ -7,6 +7,7 @@ import Header from '../Component/Header'
 import ProductsTitle from '../Component/ProductsTitle'
 import { Product, Vegetables } from '../Data/Data' 
 import { Fruits } from '../Data/Data'
+import { Colors } from '../Utility/Colors'
 
 
 
@@ -17,9 +18,12 @@ const Home = ({navigation}) => {
      <ScrollView  showsHorizontalScrollIndicator={false} > 
     {/* Header */}  
     <View style={styles.header}>
-    {/* <Header/> */}
+    <Header/>
     <SearchBar />
     </View>
+    {/* padding: 20, */}
+<View style={{   paddingLeft: 10, paddingBottom: 20}}>
+
     {/* Banner */}
     <Image source={require('../Assets/Images/banner.png')} style={styles.image} />
     
@@ -28,6 +32,8 @@ const Home = ({navigation}) => {
  <Item data={Fruits} navigation={navigation} />
  <ProductsTitle title="Best Selling" />
  <Item  data={Vegetables} navigation={navigation} />
+ </View>
+
  </ScrollView>
     </SafeAreaView>
   )
@@ -38,16 +44,16 @@ export default Home
 const styles = StyleSheet.create({
   container:{
     flex:1,
-    // backgroundColor:'blue',
-    padding: 20,
+
+    // padding: 20,
   },
   header:{
-    height: responsiveHeight(15),
-    width: responsiveWidth(90),
+    // height: responsiveHeight(15),
+    // width: responsiveWidth(90),
     // backgroundColor:'red',
-    justifyContent:'center',
+    // justifyContent:'center',
     alignItems:'center',
-   
+    backgroundColor: Colors.PRIMARY ,   
   },
   image:{
     width: responsiveWidth(90) ,

@@ -3,6 +3,7 @@ import { StyleSheet, Text, View, TextInput, TouchableOpacity, FlatList } from 'r
 import { responsiveHeight, responsiveWidth } from 'react-native-responsive-dimensions';
 import { useNavigation } from '@react-navigation/native';
 import { Fruits } from '../Data/Data';
+import { FontAwesome } from '@expo/vector-icons';
 const SearchBar = () => {
   const [input, setInput] = useState('');
   const [searchResults, setSearchResults] = useState([]);
@@ -21,43 +22,53 @@ const SearchBar = () => {
   };
 
   return (
-    <View>
+    <View style={styles.container}>
+
+    <View style={styles.SearchBar}>
+
+    <View style={{flexDirection:'row', alignItems:'center', }}>
       <TextInput
         style={styles.input}
-        placeholder="Search Groceries"
+        placeholder="Search Your Groceries"
         keyboardType="default"
         value={input}
         onChangeText={(text) => setInput(text)}
       />
-      <TouchableOpacity onPress={handleSearch} style={styles.button}>
-        <Text>Search</Text>
+      {/* style={styles.button} */}
+      <TouchableOpacity onPress={handleSearch} >
+        {/* <Text style={{ color: 'white',}}>Search</Text> */}
+        <FontAwesome name="search" size={24} color="black" />
       </TouchableOpacity>
-      <TouchableOpacity onPress={goToSearchDetails} style={styles.button}>
+      {/* <TouchableOpacity onPress={goToSearchDetails} style={styles.button}>
         <Text>View Results</Text>
-      </TouchableOpacity>
+      </TouchableOpacity> */}
+    </View>
+    </View>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
+  container:{
+    flex:1,
+    // backgroundColor:'lightblue',
+    padding: 20,
+
+  },
+  SearchBar:{
+    backgroundColor:'white',
+    paddingLeft: 10,
+    paddingRight: 10,
+    borderRadius: 20,
+  },
   input: {
-    height: responsiveHeight(7),
-    width: responsiveWidth(70),
-    borderRadius: 15,
-    borderColor: 'black',
+    height: responsiveHeight(5.7),
+    width: responsiveWidth(75),
     marginVertical: 12,
-    borderWidth: 2,
-    padding: 10,
+    color:'lightgrey',
+    fontSize: 18
   },
-  button: {
-    width: responsiveWidth(30),
-    height: responsiveHeight(5),
-    backgroundColor: 'green',
-    justifyContent: 'center',
-    alignItems: 'center',
-    borderRadius: 8,
-    marginVertical: 5,
-  },
+
 });
 
 export default SearchBar;
