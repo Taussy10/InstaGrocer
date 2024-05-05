@@ -11,6 +11,8 @@ import { FontAwesome } from "@expo/vector-icons";
 // Redux code 
 import { useDispatch, useSelector } from 'react-redux'
 import {addToCart , removeFromCart} from '../Redux/CartSlice'
+import { scale, verticalScale } from 'react-native-size-matters';
+import { Colors } from '../Utility/Colors';
 
 
 
@@ -51,10 +53,10 @@ const Item = ({data , navigation}) => {
 
             activeOpacity={0.7}
             style={{
-              height: responsiveHeight(28),
+              height: verticalScale(225),
               borderWidth: 2,
               borderColor: "#E3E3E3",
-              width: responsiveWidth(45),
+              width: scale(160),
               marginRight: 15,
               borderRadius: 15,
             }}
@@ -66,13 +68,13 @@ const Item = ({data , navigation}) => {
                 alignSelf: "center",
                 resizeMode: "contain",
               }}
-              source={{ uri: item.img }}
+              source={item.img}
             />
             <View style={{ paddingHorizontal: 10, gap: 3 }}>
               <Text style={{ fontSize: 18, fontWeight: "600" }}>
                 {item.name.charAt(0).toUpperCase() + item.name.slice(1)}
               </Text>
-              <Text style={{ color: "grey" }}>{item.pieces} Priceg</Text>
+              <Text style={{ color: "grey" }}>{item.pieces} pieces</Text>
               <View
                 style={{
                   flexDirection: "row",
@@ -97,7 +99,7 @@ const Item = ({data , navigation}) => {
                   <FontAwesome
                     name="plus-square"
                     size={33}
-                    color= 'green'
+                    color={Colors.PRIMARY}
                     onPress={() => {
                       dispatch(addToCart(item));
                     }}

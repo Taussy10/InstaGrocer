@@ -8,7 +8,7 @@ import ProductsTitle from '../Component/ProductsTitle'
 import { Product, Vegetables } from '../Data/Data' 
 import { Fruits } from '../Data/Data'
 import { Colors } from '../Utility/Colors'
-
+import { scale , moderateScale , verticalScale } from 'react-native-size-matters'
 
 
 const Home = ({navigation}) => {
@@ -45,13 +45,9 @@ const styles = StyleSheet.create({
   container:{
     flex:1,
 
-    // padding: 20,
   },
   header:{
-    // height: responsiveHeight(15),
-    // width: responsiveWidth(90),
-    // backgroundColor:'red',
-    // justifyContent:'center',
+    padding:  moderateScale(20),
     alignItems:'center',
     backgroundColor: Colors.PRIMARY ,   
   },
