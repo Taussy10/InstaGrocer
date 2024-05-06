@@ -11,18 +11,17 @@ import DropBox from '../Component/DropBox'
 import { useDispatch , useSelector } from 'react-redux'; 
 import { addToCart } from '../Redux/CartSlice'
 import { Colors } from '../Utility/Colors'
-import { moderateScale } from 'react-native-size-matters'
+import { moderateScale, scale, verticalScale } from 'react-native-size-matters'
 // You may remove it try to remove it 
 
 
 const ItemDetails = ({route, navigation}) => {
   // to use Dropbox you have to enable {item}
-const {item} = route.params.main;
+// const {item} = route.params.main;
 // const [selected, SetSelected] = useState(null)
 const [heartColor, setHeartColor] = useState("grey")
 
-
-
+// console.log(item , "HIFS");
 // Redux codes
 const storeData = useSelector((state) => state.CartSlice);
 const dispatch = useDispatch()
@@ -40,13 +39,14 @@ const productData = route.params.main;
 console.log(storeData , "storeData");
 console.log(productData , "productData");
 
-const myName = route.params.name;
-console.log(myName);
+
 
 // Here we desturucter the data had on productData otherwise you have to... You don't need to destructure 
-const { name, price, pieces, img } = productData;
-
+const { name, price, pieces, img , details  } = productData;
+console.log(name);
+console.log(details);
 console.log(productData , "{I'm data from Item.jsx}");
+
 
 // const handleAddToCart = () => {
 //   // console.log("Cart") 
@@ -60,10 +60,10 @@ console.log(productData , "{I'm data from Item.jsx}");
       <ScrollView>
 
       {/* Image */}
-      <View style={{ height: responsiveHeight(10) }}>
+      <View style={{ height: verticalScale(80) }}>
   <ImageBackground source={ img } style={styles.BackgroundImg} resizeMode="contain">
     {/* Maine bol diya jab onPress kare tabhi aaye bina baat ke naa aaye */}
-    <TouchableOpacity onPress={() => navigation.navigate("Home")} style={{ marginTop: 25, marginLeft: 15 }}>
+    <TouchableOpacity onPress={() => navigation.navigate("Home")} style={{ marginTop: verticalScale(25) , marginLeft: scale(15) }}>
       <Back name="chevron-back" size={40} />
     </TouchableOpacity>
   </ImageBackground>
@@ -74,7 +74,7 @@ console.log(productData , "{I'm data from Item.jsx}");
         <View style={styles.subContainer}>
 
         
-        <View style={styles.productDetail}>
+        <View style={{  height: verticalScale(150),  marginTop: verticalScale(140)}}>
        
         <View style={{justifyContent:'space-between', flexDirection:'row' }}> 
         <Text style={{fontSize: responsiveFontSize(4), fontWeight:'bold'}}>{name} </Text>
@@ -91,7 +91,7 @@ console.log(productData , "{I'm data from Item.jsx}");
         <Text style={{fontSize: moderateScale(18), marginBottom: (10), marginTop: (5)}}>{pieces}</Text>
        
         {/* Addition and Price Container*/}
-        <View style={{marginBottom: 100, backgroundColor: 'green',alignItems:'center', flexDirection:'row', justifyContent:'space-between', }}> 
+        <View style={{marginBottom: verticalScale(100) , alignItems:'center', flexDirection:'row', justifyContent:'space-between',  }}> 
 
         <View style={ styles.qtyContainer}> 
 
@@ -106,15 +106,19 @@ console.log(productData , "{I'm data from Item.jsx}");
       <Icon  name="minus" size={30}/>
       </TouchableOpacity>
         </View>
-        <Text style={{fontSize: responsiveFontSize(4)}}>${price}</Text>
+        <Text style={{fontSize: moderateScale(30)}}>${price}</Text>
         </View> 
        
         </View>
 
-        {/*  to use Dropbox you have to enable {item} */}
-        <DropBox item={item}  /> 
-       {/* Container 3: Prdouct Detail */}
-
+      
+       {/* Container 3: Prdouct Detail  () */}
+        <View style={styles.productDetail}>
+          <Text  style={{fontSize: moderateScale(25) , fontWeight:'700'}}>Proudct Details</Text>
+          <Text style={{color:'grey', fontWeight:'600', fontSize: moderateScale(15)}}>
+            {details}
+          </Text>
+        </View>
 
 
 
@@ -127,13 +131,13 @@ console.log(productData , "{I'm data from Item.jsx}");
   activeOpacity={0.8}
   style={{
     backgroundColor: Colors.PRIMARY,
-    borderRadius: 10,
-    height: 70,
+    borderRadius: moderateScale(10),
+    height: verticalScale(70),
     justifyContent: "center",
     alignItems: "center",
   }}
 >
-  <Text style={{ color: "white", fontSize: 18, fontWeight: "700" }}>
+  <Text style={{ color: "white", fontSize: moderateScale(18), fontWeight: "700" }}>
     Add to Basket
   </Text>
 </TouchableOpacity>
@@ -148,49 +152,28 @@ export default ItemDetails
 
 const styles = StyleSheet.create({
   container:{
-    // flex: 1,
-    // padding: 10,
-    // backgroundColor:'red'
+    flex: 1,
     
   },
   subContainer:{
-    marginTop: 150,
-
-    padding: 10,
+    marginTop: 110,
+    padding: 15,
    
     
   },
   BackgroundImg:{
-    // height:responsiveHeight(30)  ,
     backgroundColor: "#cdead6",
     // padding: 150,
-    height: 340,
+    height: verticalScale(340),
     
   },
-  productDetail:{
-    
-    height: responsiveHeight(20),
-    // marginTop: ,
-    // backgroundColor:'red',
-    borderBottomColor:'grey',
-    borderBottomWidth: responsiveWidth(0.7),
-    // backgroundColor:'green',
-    marginTop: 143,
-  },
-
- 
   qty:{
    fontSize: moderateScale(20)
     },
-
-     desc:{
-      fontSize: moderateScale(2.2),
-      fontWeight:'600'
-     },
-  roundBtn:{ 
-    width: 50 ,
-    height: 50 , 
-    borderRadius: 25,
+roundBtn:{ 
+    width: scale(50) ,
+    height: verticalScale(50) , 
+    borderRadius: moderateScale(25),
     backgroundColor:Colors.PRIMARY , 
     flexDirection:'row',
     justifyContent:'center',
@@ -199,7 +182,10 @@ const styles = StyleSheet.create({
   qtyContainer:{
      flexDirection:'row'
       ,alignItems:'center' ,
-       gap: 4,
+       gap: moderateScale(4),
       
+      },
+      productDetail:{
+      marginBottom: verticalScale(20)
       }
 })

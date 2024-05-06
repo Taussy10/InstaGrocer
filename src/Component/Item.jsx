@@ -18,7 +18,6 @@ import { Colors } from '../Utility/Colors';
 
 const Item = ({data , navigation}) => {
 
-
   // Redux code 
   // CartSlice data coming from CartSlice Slice
   const dispatch = useDispatch();
@@ -36,6 +35,7 @@ const Item = ({data , navigation}) => {
         // showsVerticalScrollIndicator={false}
         data={data}
         // in flatList every data is sum up as an item 
+        
         renderItem={({ item, index }) => (
           <TouchableOpacity
             onPress={() => {
@@ -47,7 +47,6 @@ const Item = ({data , navigation}) => {
             
               navigation.navigate("ItemDetails", {
                 main: item,
-                name: "Tausif"
               });
             }}
 

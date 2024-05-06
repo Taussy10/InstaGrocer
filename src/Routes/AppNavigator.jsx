@@ -18,8 +18,10 @@ const AppNavigator = ({name}) => {
       <Stack.Screen name='SignUp' component={SignUp} />
    <Stack.Screen name='Home' component={Home} />
    <Stack.Screen name='SearchDetails' component={SearchDetails} />
-    <Stack.Screen name='ItemDetails' component={ItemDetails} options={{headerShown:true}} />
-      <Stack.Screen name='Cart' component={Cart} />
+    <Stack.Screen name='ItemDetails' component={ItemDetails} options={{headerShown:true, title:"Item Details"}} />
+      <Stack.Screen name='Cart' component={Cart}
+       options={{headerShown:true, title:"Cart"}}
+      />
       <Stack.Screen name='OrderPlaced' component={OrderPlaced} />
 
       

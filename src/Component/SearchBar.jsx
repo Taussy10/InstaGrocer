@@ -63,8 +63,8 @@ const styles = StyleSheet.create({
     // height: responsiveHeight(4),
     width: responsiveWidth(75),
     marginVertical: 12,
-    color:'lightgrey',
-    fontSize: 18
+    color:'grey',
+    fontSize: 17
   },
 
 });
