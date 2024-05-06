@@ -5,6 +5,7 @@ import {
   FlatList,
   TouchableOpacity,
   StyleSheet,
+  ActivityIndicator
 } from "react-native";
 import React from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -32,9 +33,17 @@ const Cart = ({ navigation, route }) => {
   storeData.forEach((element) => {
     amount += element.price;
   });
+
+  // const load = ()  =>{
+  //   setTimeout(() => {
+      
+  //        navigation.navigate("OrderPlaced", { main: productData })
+  //   }, 3000);
+
+  // }
   return (
     <SafeAreaView style={styles.container}>
-      <View style={{ flex: 1, backgroundColor: "green" }}>
+      <View style={{ flex: 1, }}>
         <FlatList
           showsVerticalScrollIndicator={false}
           data={storeData}
@@ -42,11 +51,11 @@ const Cart = ({ navigation, route }) => {
             // Cart Container
             <View
               style={{
-                height: responsiveHeight(18),
+                height: verticalScale(130),
                 borderBottomColor: "#E3E3E3",
-                borderBottomWidth: 2,
+                borderBottomWidth: 3,
                 flexDirection: "row",
-                backgroundColor: "blue",
+                // backgroundColor: "blue",
               }}
             >
               {/* For image */}
@@ -55,7 +64,7 @@ const Cart = ({ navigation, route }) => {
                   flex: 0.35,
                   alignItems: "center",
                   justifyContent: "center",
-                  backgroundColor: "lightblue",
+                  // backgroundColor: "lightblue",
                 }}
               >
                 <Image
@@ -64,20 +73,17 @@ const Cart = ({ navigation, route }) => {
                 />
               </View>
 
-              {/* ///Child 2 */}
-              <View
-                style={{
-                  flex: 0.7,
-                  paddingHorizontal: 10,
-                  paddingVertical: 20,
-                }}
-              >
-                <View
-                  style={{
-                    flexDirection: "row",
-                    alignContent: "center",
-                    justifyContent: "space-between",
-                    alignItems: "center",
+ {/* ///Child 2 */}
+<View
+style={{
+flex: 0.7,
+paddingHorizontal: 10,
+paddingVertical: 20,
+// backgroundColor:'orange'
+}}
+>
+<View style={{ flexDirection: "row",alignContent: "center",justifyContent: "space-between",alignItems: "center",
+
                   }}
                 >
                   <Text style={{ fontSize: 20, fontWeight: "600" }}>
@@ -161,9 +167,9 @@ const Cart = ({ navigation, route }) => {
         />
       </View>
       <TouchableOpacity
-        onPress={() =>
-          navigation.navigate("OrderPlaced", { main: productData })
-        }
+        // onPress={
+        // load()
+        // }
         style={{
           backgroundColor: Colors.PRIMARY,
           borderRadius: 10,
@@ -172,9 +178,13 @@ const Cart = ({ navigation, route }) => {
           alignItems: "center",
         }}
       >
-        <Text style={{ color: "white", fontSize: 30, fontWeight: "700" }}>
+            {/* <ActivityIndicator > 
+            <Text style={{ color: "white", fontSize: 30, fontWeight: "700" }}>
           Order it{" "}
         </Text>
+            </ActivityIndicator> */}
+
+       
       </TouchableOpacity>
     </SafeAreaView>
   );
