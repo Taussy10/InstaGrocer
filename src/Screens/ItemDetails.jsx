@@ -1,4 +1,4 @@
-import { Image, ImageBackground, StyleSheet, Text, TouchableOpacity, View , SafeAreaView} from 'react-native'
+import { Image, ImageBackground, StyleSheet, Text, TouchableOpacity, View , SafeAreaView, ScrollView} from 'react-native'
 import { responsiveFontSize, responsiveHeight, responsiveWidth } from 'react-native-responsive-dimensions'
 import Icon from 'react-native-vector-icons/Entypo'
 import Heart from 'react-native-vector-icons/AntDesign'
@@ -57,6 +57,8 @@ console.log(productData , "{I'm data from Item.jsx}");
 
   return (
     <SafeAreaView  style={styles.container}>
+      <ScrollView>
+
       {/* Image */}
       <View style={{ height: responsiveHeight(10) }}>
   <ImageBackground source={ img } style={styles.BackgroundImg} resizeMode="contain">
@@ -136,6 +138,8 @@ console.log(productData , "{I'm data from Item.jsx}");
   </Text>
 </TouchableOpacity>
 </View>
+</ScrollView>
+
     </SafeAreaView>
   )
 }
@@ -150,14 +154,17 @@ const styles = StyleSheet.create({
     
   },
   subContainer:{
- 
+    marginTop: 150,
+
     padding: 10,
    
     
   },
   BackgroundImg:{
-    height:responsiveHeight(30)  ,
-    backgroundColor: "#cdead6"
+    // height:responsiveHeight(30)  ,
+    backgroundColor: "#cdead6",
+    // padding: 150,
+    height: 340,
     
   },
   productDetail:{
