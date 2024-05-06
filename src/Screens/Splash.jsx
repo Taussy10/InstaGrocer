@@ -2,7 +2,9 @@ import { SafeAreaView, StyleSheet, Text, View, Button, Image } from 'react-nativ
 
 
 import { responsiveFontSize, responsiveHeight, responsiveWidth } from 'react-native-responsive-dimensions';
+import { moderateScale , verticalScale , scale } from 'react-native-size-matters';
 import { useEffect } from 'react';
+import { Colors } from '../Utility/Colors';
 
 function Splash({ navigation }) {
   useEffect(() => {
@@ -14,14 +16,13 @@ function Splash({ navigation }) {
   return (
     // Each screen always start from SafeAreaView cause it acquire whole SafeArea of a phone 
     <SafeAreaView  style={styles.container}>
-      <Image source={require('../Assets/Images/Logo.png')} style={styles.image} />
+      {/* <Image source={require('../Assets/Images/Logo.png')} style={styles.image} /> */}
         <View >
-          <Text style={{fontSize: responsiveFontSize(10)  }}>nectar</Text>
+          <Text style={{fontSize: moderateScale(100) , color:'white', fontWeight: '700' ,   }}>Nectar</Text>
 
-          <Text style={{fontSize: responsiveFontSize(3)  }}>Online Groceries</Text>
+          <Text style={{fontSize: moderateScale(25) ,color:'lightgrey', fontWeight: '500',textAlign:'center'  }}> Buy Online Groceries</Text>
         </View>
-        <Text>
-      </Text>
+      
     </SafeAreaView>
   );
 }
@@ -32,14 +33,14 @@ export default Splash
 const styles = StyleSheet.create({
   container:{
     flex:1,
-    backgroundColor:'lightgreen',
+    backgroundColor: Colors.PRIMARY,
     alignItems: 'center', 
     justifyContent: 'center',
     flexDirection:'row',
     padding:20,
   },
   image:{
-    width: responsiveWidth(30),
-    height: responsiveHeight(18),
+    width: moderateScale(250),
+    height: verticalScale(300),
   }
 })

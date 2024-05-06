@@ -7,13 +7,9 @@ import {
   StyleSheet,
   ActivityIndicator
 } from "react-native";
-import React from "react";
+import React,{useState} from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
-import {
-  responsiveHeight,
-  responsiveWidth,
-  responsiveFontSize,
-} from "react-native-responsive-dimensions";
+
 import { scale, moderateScale, verticalScale } from "react-native-size-matters";
 import { AntDesign } from "@expo/vector-icons";
 // import { myColors } from "../Utils/MyColors";
@@ -24,6 +20,8 @@ import { Colors } from "../Utility/Colors";
 import Icon from "react-native-vector-icons/Entypo";
 
 const Cart = ({ navigation, route }) => {
+  const [loading, setloading] = useState(false)
+
   const productData = route.params.main;
   console.log(productData, "In cart.jsx");
   const dispatch = useDispatch();
@@ -34,13 +32,13 @@ const Cart = ({ navigation, route }) => {
     amount += element.price;
   });
 
-  // const load = ()  =>{
-  //   setTimeout(() => {
+  const load = ()  =>{
+    setTimeout(() => {
       
-  //        navigation.navigate("OrderPlaced", { main: productData })
-  //   }, 3000);
+         navigation.navigate("OrderPlaced", { main: productData })
+    }, 3000);
 
-  // }
+  }
   return (
     <SafeAreaView style={styles.container}>
       <View style={{ flex: 1, }}>
@@ -167,9 +165,9 @@ paddingVertical: 20,
         />
       </View>
       <TouchableOpacity
-        // onPress={
-        // load()
-        // }
+        onPress={() => 
+            {setloading(true); load() }}
+      
         style={{
           backgroundColor: Colors.PRIMARY,
           borderRadius: 10,
@@ -178,11 +176,20 @@ paddingVertical: 20,
           alignItems: "center",
         }}
       >
-            {/* <ActivityIndicator > 
-            <Text style={{ color: "white", fontSize: 30, fontWeight: "700" }}>
+  
+  {loading ? (
+    // Display the activity indicator while loading is true
+    <ActivityIndicator  size={'large'} color={'white'}/>
+  ) : (
+    // Display the "Order it" text when not loading
+    <Text style={{ color: "white", fontSize: 30, fontWeight: "700" }}>
+      Order it
+    </Text>
+  )}
+         {/* <Text style={{ color: "white", fontSize: 30, fontWeight: "700" }}>
           Order it{" "}
-        </Text>
-            </ActivityIndicator> */}
+        </Text> */}
+           
 
        
       </TouchableOpacity>

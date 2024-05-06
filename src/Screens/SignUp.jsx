@@ -1,7 +1,9 @@
 import { StyleSheet, Text, TouchableOpacity, View, Image, SafeAreaView } from 'react-native'
-import React from 'react'
+import React, { version } from 'react'
 import { responsiveFontSize, responsiveHeight, responsiveWidth } from 'react-native-responsive-dimensions'
 import Google from "react-native-vector-icons/AntDesign"
+import { Colors } from '../Utility/Colors'
+import { moderateScale, scale, verticalScale } from 'react-native-size-matters'
 const SignUp = ({navigation}) => {
   return (
     <SafeAreaView style={styles.container}>
@@ -27,12 +29,13 @@ const styles = StyleSheet.create({
   container:{
   flex:1,
    alignItems:'center',
-  //  justifyContent:'center'
-  backgroundColor:'lightgreen'
+   justifyContent:'center',
+  backgroundColor: Colors.PRIMARY
   },
   button:{
-    height: responsiveHeight(7) ,
-    width: responsiveWidth(90),
+    height: verticalScale(50) ,
+    width: scale(320),
+    borderRadius: moderateScale(50) ,
     backgroundColor:'#0096FF',
     justifyContent:'center',
     alignItems:'center',
@@ -51,9 +54,11 @@ const styles = StyleSheet.create({
     // backgroundColor:'red'
   },
   image:{
-    height: responsiveHeight(30),
-    width: responsiveWidth(50) , 
+    height: verticalScale(300),
+    width: scale(250) , 
     // backgroundColor:'white'
-    resizeMode:'cover'
+    resizeMode:'cover',
+    // textAlign:'center'
+    marginLeft: 50
   }
 })

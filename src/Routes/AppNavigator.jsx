@@ -13,7 +13,7 @@ const Stack = createNativeStackNavigator()
 const AppNavigator = ({name}) => {
   return (
   //  Never use View{any react native component} over the Navigator
-      <Stack.Navigator initialRouteName='Home' screenOptions={{headerShown:false}} >
+      <Stack.Navigator initialRouteName='Splash' screenOptions={{headerShown:false}} >
          <Stack.Screen name="Splash" component={Splash} />
       <Stack.Screen name='SignUp' component={SignUp} />
    <Stack.Screen name='Home' component={Home} />
