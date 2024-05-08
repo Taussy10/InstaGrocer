@@ -16,7 +16,6 @@ function Splash({ navigation }) {
   return (
     // Each screen always start from SafeAreaView cause it acquire whole SafeArea of a phone 
     <SafeAreaView  style={styles.container}>
-      {/* <Image source={require('../Assets/Images/Logo.png')} style={styles.image} /> */}
         <View >
           <Text style={{fontSize: moderateScale(100) , color:'white', fontWeight: '700' ,   }}>Nectar</Text>
 

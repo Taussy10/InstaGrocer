@@ -26,21 +26,15 @@ const OrderPlaced = ({route , navigation}) => {
     <SafeAreaView style={styles.container}>
 
     <Image  source={require("../Assets/Images/OrderPlaced.png")} />
-    <Text style={{fontSize: moderateScale(30) , color:Colors.PRIMARY ,}}>Thanks for ordering </Text>
+    <Text style={{fontSize: moderateScale(34) , color:Colors.PRIMARY , fontWeight:'800'}}>Thanks for ordering </Text>
 
     <TouchableOpacity
         onPress={() =>
           navigation.navigate("Home")
         }
-        style={{
-          backgroundColor: Colors.PRIMARY,
-          borderRadius: moderateScale(10),
-          height: verticalScale(70),
-          width: scale(300)  ,
-          justifyContent: "center",
-          alignItems: "center",
-          // marginTop: verticalScale(300)
-        }}>
+        style={styles.btn
+
+        }>
         <Text style={{ color: "white", fontSize: moderateScale(30) , fontWeight: "700" }}>
           Back to Home
         </Text>
@@ -58,8 +52,18 @@ const styles = StyleSheet.create({
     alignItems:'center',
     padding: moderateScale(20)  ,
     justifyContent:'center',
-    // flexDirection: "row",
     justifyContent:'space-around',
     backgroundColor:'black'
+  },
+  btn: {
+    backgroundColor: Colors.PRIMARY,
+    borderRadius: moderateScale(10),
+    height: verticalScale(70),
+    width: scale(300)  ,
+    justifyContent: "center",
+    alignItems: "center",
+    // position:'absolute',
+    // bottom: 25
+    // marginTop: verticalScale(300)
   }
 })

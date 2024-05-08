@@ -1,4 +1,4 @@
-import { Image, ImageBackground, StyleSheet, Text, TouchableOpacity, View , SafeAreaView, ScrollView} from 'react-native'
+import { Image, ImageBackground, StyleSheet, Text, TouchableOpacity, View , SafeAreaView, ScrollView , StatusBar} from 'react-native'
 import { responsiveFontSize, responsiveHeight, responsiveWidth } from 'react-native-responsive-dimensions'
 import Icon from 'react-native-vector-icons/Entypo'
 import Heart from 'react-native-vector-icons/AntDesign'
@@ -59,6 +59,8 @@ console.log(productData , "{I'm data from Item.jsx}");
     <SafeAreaView  style={styles.container}>
       <ScrollView>
 
+      <StatusBar backgroundColor="black" />
+
       {/* Image */}
       <View style={{ height: verticalScale(80) }}>
   <ImageBackground source={ img } style={styles.BackgroundImg} resizeMode="contain">
@@ -77,7 +79,7 @@ console.log(productData , "{I'm data from Item.jsx}");
         <View style={{  height: verticalScale(150),  marginTop: verticalScale(140)}}>
        
         <View style={{justifyContent:'space-between', flexDirection:'row' }}> 
-        <Text style={{fontSize: responsiveFontSize(4), fontWeight:'bold'}}>{name} </Text>
+        <Text style={{fontSize: moderateScale(24), fontWeight:'bold'}}>{name} </Text>
         {/* <Text style={{fontSize: responsiveFontSize(4), fontWeight:'bold'}}> </Text> */}
         {
           <TouchableOpacity onPress={()=> { 
@@ -88,25 +90,26 @@ console.log(productData , "{I'm data from Item.jsx}");
           </TouchableOpacity>
         }  
         </View>
-        <Text style={{fontSize: moderateScale(18), marginBottom: (10), marginTop: (5)}}>{pieces}</Text>
+
+        <Text style={{fontSize: moderateScale(16), marginBottom: (10), marginTop: (5)}}>{pieces}</Text>
        
         {/* Addition and Price Container*/}
-        <View style={{marginBottom: verticalScale(100) , alignItems:'center', flexDirection:'row', justifyContent:'space-between',  }}> 
+        <View style={{  alignItems:'center', flexDirection:'row', justifyContent:'space-between' , }}> 
 
         <View style={ styles.qtyContainer}> 
 
          <TouchableOpacity style={styles.roundBtn}>
-         <Icon  name="plus" size={30} color={"white"}/>
+         <Icon  name="plus" size={25} color={"white"}/>
 
          </TouchableOpacity>
 
         <Text  style={styles.qty} > 1KG </Text>
 
         <TouchableOpacity style={{ ...styles.roundBtn , backgroundColor:'lightgrey'}}>
-      <Icon  name="minus" size={30}/>
+      <Icon  name="minus" size={25}/>
       </TouchableOpacity>
         </View>
-        <Text style={{fontSize: moderateScale(30)}}>${price}</Text>
+        <Text style={{fontSize: moderateScale(25), fontWeight:'bold'}}>₹{price}</Text>
         </View> 
        
         </View>
@@ -114,8 +117,8 @@ console.log(productData , "{I'm data from Item.jsx}");
       
        {/* Container 3: Prdouct Detail  () */}
         <View style={styles.productDetail}>
-          <Text  style={{fontSize: moderateScale(25) , fontWeight:'700'}}>Proudct Details</Text>
-          <Text style={{color:'grey', fontWeight:'600', fontSize: moderateScale(15)}}>
+          <Text  style={{fontSize: moderateScale(16) , fontWeight:'700', marginBottom: 10 , }}>Proudct Details</Text>
+          <Text style={{color:'grey', fontWeight:'600', fontSize: moderateScale(13)}}>
             {details}
           </Text>
         </View>
@@ -129,13 +132,7 @@ console.log(productData , "{I'm data from Item.jsx}");
     navigation.navigate("Cart", {main: productData});
   }}
   activeOpacity={0.8}
-  style={{
-    backgroundColor: Colors.PRIMARY,
-    borderRadius: moderateScale(10),
-    height: verticalScale(70),
-    justifyContent: "center",
-    alignItems: "center",
-  }}
+  style={styles.btn }
 >
   <Text style={{ color: "white", fontSize: moderateScale(18), fontWeight: "700" }}>
     Add to Basket
@@ -158,11 +155,12 @@ const styles = StyleSheet.create({
   subContainer:{
     marginTop: 110,
     padding: 15,
-   
+    // backgroundColor: "lightgreen",
     
   },
   BackgroundImg:{
     backgroundColor: "#cdead6",
+    
     // padding: 150,
     height: verticalScale(340),
     
@@ -171,21 +169,35 @@ const styles = StyleSheet.create({
    fontSize: moderateScale(20)
     },
 roundBtn:{ 
-    width: scale(50) ,
-    height: verticalScale(50) , 
-    borderRadius: moderateScale(25),
+    width: scale(30) ,
+    height: verticalScale(30) , 
+    borderRadius: moderateScale(15),
     backgroundColor:Colors.PRIMARY , 
     flexDirection:'row',
     justifyContent:'center',
     alignItems:'center'
   },
   qtyContainer:{
-     flexDirection:'row'
-      ,alignItems:'center' ,
-       gap: moderateScale(4),
+     flexDirection:'row',
+    alignItems:'center' ,
+    gap: moderateScale(4),
+    height: verticalScale(45) ,
+    width: scale(120),
       
       },
       productDetail:{
-      marginBottom: verticalScale(20)
+      marginBottom: verticalScale(60),
+      // backgroundColor:'lightblue',
+      height: (90),
+      width: scale(358),
+      paddingRight: scale(25),
+      
+      },
+      btn:{
+        backgroundColor: Colors.PRIMARY,
+        borderRadius: moderateScale(10),
+        height: verticalScale(70),
+        justifyContent: "center",
+        alignItems: "center",
       }
 })

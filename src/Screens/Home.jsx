@@ -9,6 +9,7 @@ import { Product, Vegetables } from '../Data/Data'
 import { Fruits } from '../Data/Data'
 import { Colors } from '../Utility/Colors'
 import { scale , moderateScale , verticalScale } from 'react-native-size-matters'
+import { StatusBar } from 'expo-status-bar'
 
 
 const Home = ({navigation}) => {
@@ -16,10 +17,12 @@ const Home = ({navigation}) => {
   return (
     <SafeAreaView style={styles.container} >
      <ScrollView  showsHorizontalScrollIndicator={false} > 
+     <StatusBar  style='light'/>
+     {/* backgroundColor="black" */}
     {/* Header */}  
     <View style={styles.header}>
     <Header/>
-    <SearchBar />
+    <SearchBar  />
     </View>
     {/* padding: 20, */}
 <View style={{   paddingLeft: 10, paddingBottom: 20}}>

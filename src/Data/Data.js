@@ -7,7 +7,7 @@ export const Fruits = [
     price: 4.99,
     // img: "https://w7.pngwing.com/pngs/265/75/png-transparent-ipod-touch-apple-icon-format-icon-large-red-apples-closeup-of-red-apples-natural-foods-food-eating.png",
     img: require("../Assets/Images/Fruits/apple.png"),
-    details: "An apple is a round, edible fruit produced by an apple tree (Malus spp., among them the domestic or orchard apple; Malus domestica). Apple trees are cultivated worldwide and are the most widely grown species in the genus Malus. The tree originated in Central Asia, where its wild ancestor, Malus sieversii, is still found"
+    details: "Apple are nutritious. Apples may be good for weight loss. Apples may be good for heart as part of a healthful and varied diet."
 
   },
   {

@@ -153,7 +153,7 @@ paddingVertical: 20,
 
                   {/* ///Quantity Container// */}
 
-                  <Text style={{ fontSize: 22, fontWeight: "600" }}>
+                  <Text style={{ fontSize: 22, fontWeight: "bold" }}>
                     ₹ {item.quantity * item.price}
                   </Text>
                 </View>
